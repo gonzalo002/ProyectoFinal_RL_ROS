@@ -1,0 +1,8 @@
+#goal definition
+int8 order
+---
+#result definition
+HandData[] hand_data
+---
+#feedback
+int8 feedback

@@ -1,0 +1,9 @@
+#goal definition
+int8 order
+---
+#result definition
+IdCubos[] cubes_position
+int8[] color_counter
+---
+#feedback
+int8 feedback

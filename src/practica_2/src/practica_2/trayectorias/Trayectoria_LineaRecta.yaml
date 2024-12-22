@@ -1,0 +1,28 @@
+Punto_1: !!python/object/new:geometry_msgs.msg._Pose.Pose
+  state:
+  - !!python/object/new:geometry_msgs.msg._Point.Point
+    state:
+    - 0.26022587663323066
+    - 0.3379189165004046
+    - 0.2707365962905549
+  - !!python/object/new:geometry_msgs.msg._Quaternion.Quaternion
+    state:
+    - -0.999804901989454
+    - 0.019749675647258203
+    - -0.00027723791085430854
+    - 0.00017722535677232028
+
+
+Punto_2: !!python/object/new:geometry_msgs.msg._Pose.Pose
+  state:
+  - !!python/object/new:geometry_msgs.msg._Point.Point
+    state:
+    - -0.1
+    - 0.3379189165004046
+    - 0.2707365962905549
+  - !!python/object/new:geometry_msgs.msg._Quaternion.Quaternion
+    state:
+    - -0.999804901989454
+    - 0.019749675647258203
+    - -0.00027723791085430854
+    - 0.00017722535677232028

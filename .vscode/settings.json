@@ -1,0 +1,11 @@
+{
+    "python.autoComplete.extraPaths": ["/home/laboratorio/ros_workspace/devel/lib/python3/dist-packages",
+    "/home/laboratorio/ros_workspace/src/proyecto_final/src/proyecto_final",
+    "/home/laboratorio/ros_workspace/src/proyecto_final/src/proyecto_final/scripts/vision/grupo_2"],
+    "python.analysis.extraPaths": [
+        "/home/laboratorio/ros_workspace/devel/lib/python3/dist-packages",
+        "/home/laboratorio/ros_workspace/src/proyecto_final/src/proyecto_final",
+        "/home/laboratorio/ros_workspace/src/proyecto_final/src/proyecto_final/scripts/vision/grupo_2"
+    ],
+    "cmake.ignoreCMakeListsMissing": true
+}

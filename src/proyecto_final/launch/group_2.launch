@@ -1,0 +1,56 @@
+<launch>
+  <!-- DEFINCIÓN DE ARGUMENTOS -->
+  <arg name="cam_tracker" default="true" />
+  <arg name="cam_view" default="true" />
+
+  <!-- Si cam_tracker o cam_view == TRUE -->
+  <group if="$(eval cam_tracker or cam_view)">
+    <!-- CÁMARA PLANTA -->
+    <node name="top_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+      <param name="video_device" value="/dev/video0" /> <!-- CAMBIAR ID -->
+      <param name="image_width" value="640" />
+      <param name="image_height" value="480" />
+      <param name="pixel_format" value="yuyv" />
+      <param name="camera_frame_id" value="top_cam" />
+      <param name="io_method" value="mmap"/>
+      <param name="camera_info_url" value="/home/laboratorio/ros_workspace/src/proyecto_final/data/necessary_data/ost.yaml"/>
+    </node>
+  </group>
+
+  <!-- Si cam_view == TRUE -->
+  <group if="$(arg cam_view)">
+    <!-- CÁMARA ALZADO --> 
+    <node name="alzado_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+      <param name="video_device" value="/dev/video4" /> <!-- CAMBIAR ID -->
+      <param name="image_width" value="640" />
+      <param name="image_height" value="480" />
+      <param name="pixel_format" value="yuyv" />
+      <param name="camera_frame_id" value="alzado_cam" />
+      <param name="io_method" value="mmap"/>
+      <param name="camera_info_url" value=""/>
+    </node>
+
+    <!-- CÁMARA PERFIL -->
+    <node name="perfil_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+      <param name="video_device" value="/dev/video8" /> <!-- CAMBIAR ID -->
+      <param name="image_width" value="640" />
+      <param name="image_height" value="480" />
+      <param name="pixel_format" value="yuyv" />
+      <param name="camera_frame_id" value="perfil_cam" />
+      <param name="io_method" value="mmap"/>
+      <!-- Deshabilitar URL de calibración -->
+      <param name="camera_info_url" value=""/>
+    </node>
+  </group>
+
+  <!-- Servidor: CUBE TRACKER --> 
+  <node name="cube_tracker_node" pkg="proyecto_final" type="CubeTrackerActionServer.py" output="screen" >
+    <param name="cam_on" value="$(arg cam_tracker)" /> <!-- USAR CÁMARA (true/false) -->
+  </node>
+
+  <!-- Servidor: FIGURE MAKER --> 
+  <node name="figure_maker_node" pkg="proyecto_final" type="FigurasActionServer.py" output="screen" >
+    <param name="cam_on" value="$(arg cam_view)" /> <!-- USAR CÁMARA (true/false) -->
+  </node>
+
+</launch>
